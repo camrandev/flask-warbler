@@ -16,7 +16,7 @@ from models import db, User, Message, Follow
 # before we import our app, since that will have already
 # connected to the database
 
-os.environ['DATABASE_URL'] = "postgresql:///warbler_test"
+os.environ["DATABASE_URL"] = "postgresql:///warbler_test"
 
 # Now we can import app
 
@@ -50,11 +50,9 @@ class UserModelTestCase(TestCase):
 
         self.client = app.test_client()
 
-
     def tearDown(self):
         """break down the testing environment after every test"""
         db.session.rollback()
-
 
     def test_user_model(self):
         """tests creation of user model"""
@@ -64,6 +62,15 @@ class UserModelTestCase(TestCase):
         self.assertEqual(len(u1.messages), 0)
         self.assertEqual(len(u1.followers), 0)
 
+    def test_user_model_repr(self):
+        """tests the repr function for the user model"""
+        u1 = User.query.get(self.u1_id)
+        # manually set the ID to 1 for the test
+        u1.id = 1
+
+        expected_repr = "<User #1: u1, u1@email.com>"
+        actual_repr = repr(u1)
+        self.assertEqual(actual_repr, expected_repr)
 
     def test_successful_user_signup(self):
         """test that user can sign up"""
@@ -73,17 +80,14 @@ class UserModelTestCase(TestCase):
         self.assertEqual(u1.email, "testing@email.com")
         self.assertTrue(u1.password != "password")
 
-
     def test_unsuccessful_user_signup(self):
         """test uncessful signup attempt"""
         with self.assertRaises(ValueError):
             User.signup("uncessessful", "uncessessful", "", None)
             db.session.commit()
 
-        users = User.query.filter_by(
-            username="uncessessful", email="uncessessful")
+        users = User.query.filter_by(username="uncessessful", email="uncessessful")
         self.assertNotIn("uncessessful", users)
-
 
     def test_valid_auth(self):
         """test authenticate class method: positive outcome"""
@@ -94,7 +98,6 @@ class UserModelTestCase(TestCase):
 
         self.assertEqual(u1, auth_user)
 
-
     def test_invalid_auth(self):
         """test authenticate class method: negative outcome"""
 
@@ -103,7 +106,6 @@ class UserModelTestCase(TestCase):
         auth_user = User.authenticate(u1.username, "notpassword")
 
         self.assertEqual(False, auth_user)
-
 
     def test_follow(self):
         """test that users can follow eachother"""
@@ -117,7 +119,6 @@ class UserModelTestCase(TestCase):
 
         self.assertTrue(u1.is_following(u2))
         self.assertTrue(u2.is_followed_by(u1))
-
 
     def test_unfollow(self):
         """test that users can follow and then unfollow eachother"""
