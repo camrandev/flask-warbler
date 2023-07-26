@@ -45,7 +45,7 @@ python3 seed.py
 - create a .env file at the root of the project
 - copy and paste the following code into your new .env file
   ```
-  SECRET_KEY=(any secret key you want)
+  SECRET_KEY=secret
   DATABASE_URL=postgresql:///warbler
   ```
 
