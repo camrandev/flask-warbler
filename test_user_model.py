@@ -84,7 +84,6 @@ class UserModelTestCase(TestCase):
         """test uncessful signup attempt"""
         with self.assertRaises(ValueError):
             User.signup("uncessessful", "uncessessful", "", None)
-            db.session.commit()
 
         users = User.query.filter_by(username="uncessessful", email="uncessessful")
         self.assertNotIn("uncessessful", users)
