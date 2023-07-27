@@ -130,7 +130,7 @@ def logout():
 
     if form.validate_on_submit():
         do_logout()
-        flash('logged out!')
+        flash('You have been logged out', "success")
 
     return redirect("/")
 
