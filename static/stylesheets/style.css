@@ -390,9 +390,36 @@ p.card-bio {
   margin: 2em 10px 0;
 }
 
+
 /*for small screens*/
 @media screen and (max-width: 768px) {
   .hide-on-small {
+    display: none;
+  }
+  .user-card {
+    padding-bottom:65%;
+    margin-bottom: .5rem;
+  }
+
+  #warbler-hero {
+    display:none;
+  }
+
+  #profile-avatar {
+    display:none;
+  }
+
+  .row.full-width {
+    margin-top:0;
+  }
+  .mobile-center {
+    justify-content: center !important;
+  }
+
+}
+
+@media screen and (min-width: 768px) {
+  .hide-on-large {
     display: none;
   }
 }

@@ -25,7 +25,7 @@
     <div class="navbar-header">
       <a href="/" class="navbar-brand">
         <img src="/static/images/warbler-logo.png" alt="logo">
-        <span>Warbler</span>
+        <span class="hide-on-small">Warbler</span>
       </a>
     </div>
 
@@ -57,10 +57,11 @@
           </a>
         </li>
         <li><a href="/messages/new">New Message</a></li>
-        <li>
+        <!-- <li><a id="logout" href="">logout</a></li> -->
+        <li id="logout">
           <form action="/logout" method="POST">
             {{form.hidden_tag()}}
-            <button class="btn btn-default">Logout</button>
+            <a href="#">Logout</a>
           </form>
         </li>
       {% endif %}
