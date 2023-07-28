@@ -1,5 +1,5 @@
 # Warbler - Fullstack Twitter clone
-Warbler is a Twitter clone. It is currently built as a multi-page application using server-side rendering with Jinja.
+Warbler is a Twitter clone. It is currently built as a multi-page application using server-side rendering with Jinja. The main goal of this project was to get comfortable with writing a backend in flask, with a focus on writing tests for certain portions of the code. 
 
 View the deployed site [here](https://warbler-6zbi.onrender.com/), deployed with Render and Surge
 
@@ -68,10 +68,11 @@ python -m unittest
 ```
 
 ## To-Dos
+- Rebuild the frontend as a single page application using React and React-router, with a focus on responsiveness and accessibility
+- refactor a number of non-ajax calls into ajax calls (particularly the "like" and "unlike" buttons).
+- Fix a bug where the "like" icon is not displaying correctly on certain mobile screens
 - write tests to get coverage above 95%
-- rebuild the frontend as a stand-alone single-page application using React or another framework
-- add Ajax for a number of key features (like, follow, others)
-- refactor the backend for increased maintainability using Flask blueprints or potentially even rebuild the whole thing using Django
+- Refactor the backend for increased maintainability using Flask blueprints or potentially even rebuild the whole thing using Django
 
 ## Acknowledgements
 Warbler was built during my time at Rithm School, as part of a 3-day sprint. My partner on the backend was [Hannah Nguyen](https://github.com/hbnnguyen)
